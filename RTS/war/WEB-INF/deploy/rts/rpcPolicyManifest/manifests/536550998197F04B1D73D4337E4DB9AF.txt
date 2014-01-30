@@ -1,0 +1,2 @@
+serviceClass: edu.ycp.cs320.rts.client.GreetingService
+path: D8BE193B1DAD875C161288C4903A68AD.gwt.rpc
