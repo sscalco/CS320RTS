@@ -1,0 +1,25 @@
+Feb. 4th, 2014, 22:23
+Hi all,
+Today I had a chat with Dr. Link about the rts.
+He had some very brilliant suggestions about making our game.
+
+	*He described a system where every object in the game implements two methods...
+
+		-A "timeTick" method that tells the object what to do every time this is called, taking an action as it's parameter.
+		-A "interact" method in which the game object called checks collisions on every other object, deciding what should 
+		 happen.
+
+		-This beauty of this system really shines when we consider the function of the game world (holding and organizing all of the game data.) Using this 
+		 system means that the game world object can contain a list, NOT A LINKED LIST I was told, where every 1 or so seconds the game goes down the list, 
+		 calling timeTick on every game object, then again this time calling interact.
+
+	*Also, if you remember CS201, we implemented a "model, controller, view." In this system,
+		-The controller is the AI or Player;
+		-The models are the game objects; (controlled by the controller);
+		-The models exist in the world which gets represented as a view in browser;
+		
+If we could schedule a regular time to meet (preferably 2-3 times a week) that would be wonderful.
+Looking forward to working with you guys soon!
+
+Thanks,
+-Austin
