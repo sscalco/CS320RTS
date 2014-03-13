@@ -55,7 +55,7 @@ public class Point {
 	}
 	
 	/**
-	 * adds the x and y components of the point and the paramenter point
+	 * adds the x and y components of the point and the parameter point
 	 * stores the result in this point
 	 * 
 	 * @param p the point 
