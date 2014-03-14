@@ -4,6 +4,10 @@ public class Structures implements Attackable{
 	private int health;
 	private int defense;
 	
+	/**
+	 * 
+	 * @param damage
+	 */
 	void damage(int damage){
 		this.health = this.health -  damage;
 		if(this.health <= 0){
@@ -13,16 +17,26 @@ public class Structures implements Attackable{
 		}
 	}
 	
+	/**
+	 * 
+	 * @return health
+	 */
 	int getHealth(){
 		return this.health;
 	}
-	
+	/**
+	 * 
+	 * @return defense
+	 */
 	int getDefense(){
 		return this.defense;
 	}
-	
-	int setDefense(int defense){
-		return this.defense = defense;
+	/**
+	 * 
+	 * @param defense
+	 */
+	void setDefense(int defense){
+		this.defense = defense;
 	}
 	
 	void death(){
