@@ -8,7 +8,7 @@ public class Structures implements Attackable{
 	 * 
 	 * @param damage
 	 */
-	void damage(int damage){
+	public void damage(int damage){
 		this.health = this.health -  damage;
 		if(this.health <= 0){
 			this.health = 0;
@@ -21,25 +21,25 @@ public class Structures implements Attackable{
 	 * 
 	 * @return health
 	 */
-	int getHealth(){
+	public int getHealth(){
 		return this.health;
 	}
 	/**
 	 * 
 	 * @return defense
 	 */
-	int getDefense(){
+	public int getDefense(){
 		return this.defense;
 	}
 	/**
 	 * 
 	 * @param defense
 	 */
-	void setDefense(int defense){
+	public void setDefense(int defense){
 		this.defense = defense;
 	}
 	
-	void death(){
+	public void death(){
 		//plays death animation
 	}
 }
