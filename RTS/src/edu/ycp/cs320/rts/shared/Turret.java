@@ -1,6 +1,6 @@
 package edu.ycp.cs320.rts.shared;
 
-public class Turret extends Structures implements CanAttack {
+public class Turret extends Structure implements CanAttack {
 	private int AttackStrength;
 	private int Range;
 	/**

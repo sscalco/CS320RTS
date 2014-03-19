@@ -1,9 +1,26 @@
 package edu.ycp.cs320.rts.shared;
 
-public class Structures implements Attackable{
+public class Structure implements Attackable{
 	private int health;
 	private int defense;
 	
+	/**
+	 * 
+	 */
+	public Structure(){
+		
+	}
+	
+	/**
+	 * 
+	 * @param health
+	 * @param defense
+	 */
+	
+	public Structure(int health, int defense){
+		this.health = health;
+		this.defense = defense;
+	}
 	/**
 	 * 
 	 * @param damage
