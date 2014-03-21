@@ -1,37 +1,45 @@
 package edu.ycp.cs320.rts.shared;
 
 public class Turret extends Structure implements CanAttack {
-	private int AttackStrength;
-	private int Range;
+	private int attackStrength;
+	private int range;
+	
+	public Turret(){
+		attackStrength = 0;
+		range = 0;	
+	}
+	
+	public Turret(int attackStrength, int range){
+		this.attackStrength = attackStrength;
+		this.range = range;
+	}
 	/**
 	 * 
 	 * @param AttackStrength
 	 */
-	public void setAttackStrength(int AttackStrength){
-		this.AttackStrength = AttackStrength;
-		return;
+	public void setAttackStrength(int attackStrength){
+		this.attackStrength = attackStrength;
 	}
 	/**
 	 * 
 	 * @return
 	 */
 	public int getAttackStrength(){
-		return this.AttackStrength;
+		return this.attackStrength;
 	}
 	/**
 	 * 
 	 * @param Range
 	 */
-	public void setRange(int Range){
-		this.Range = Range;
-		return;
+	public void setRange(int range){
+		this.range = range;
 	}
 	/**
 	 * 
 	 * @return
 	 */
 	public int getRange(){
-		return this.Range;
+		return this.range;
 	}
 	/**
 	 * 
