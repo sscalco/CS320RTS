@@ -8,11 +8,6 @@ public interface CanAttack {
 	 */
 	abstract void setAttackStrength(int attackStrength);
 	
-	/**
-	 * 
-	 * @param defense
-	 */
-	abstract void setDefense(int defense);
 	
 	/**
 	 * 
@@ -59,6 +54,20 @@ public interface CanAttack {
      * Also, the attacker's cool down timer should be increased.
      * 
 	 * @param target
+	 * @param currenttime
 	 */
-	abstract void attack(Interactable target); 	
+	abstract boolean attack(Interactable target, long currenttime); 	
+	
+	/**
+	 * 
+	 * @return if object can attack
+	 */
+	abstract boolean canAttack(long currenttime); 
+	
+	/**
+	 * 
+	 * @return time of last fire
+	 */
+	abstract long lastFireTime();
+	
 }

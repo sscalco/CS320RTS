@@ -2,16 +2,25 @@ package edu.ycp.cs320.rts.shared;
 
 public class Turret extends Structure implements CanAttack {
 	private int attackStrength;
-	private int range;
+	private int attackRange;
+	private int cooldown;
+	private long lastfiredtime;
 	
 	public Turret(){
-		attackStrength = 0;
-		range = 0;	
+		super();
+		this.attackStrength = 0;
+		this.attackRange = 0;
+		this.lastfiredtime = 0;
+		this.cooldown = 0;
+		this.lastfiredtime = 0;
 	}
 	
-	public Turret(int attackStrength, int range){
+	public Turret(int id, int owner, Point pos, Point size, int def, int health,int attackStrength, int range, int cool){
+		super(id, owner, pos, size, def, health);
 		this.attackStrength = attackStrength;
-		this.range = range;
+		lastfiredtime =0;
+		cooldown = cool;
+		attackRange = range;
 	}
 	/**
 	 * 
@@ -32,34 +41,47 @@ public class Turret extends Structure implements CanAttack {
 	 * @param Range
 	 */
 	public void setRange(int range){
-		this.range = range;
+		this.attackRange = range;
 	}
 	/**
 	 * 
 	 * @return
 	 */
 	public int getRange(){
-		return this.range;
+		return this.attackRange;
 	}
-	/**
-	 * 
-	 * @param target
-	 */
-	public void attack(Interactable target){
-		//fill out later
-		// if target is in range calculate attack damage
-		//if damage - defense is negative dont call
-		//call targets damage function
-		
-	}
-	@Override
+	
 	public void setCoolDown(int coolDown) {
-		// TODO Auto-generated method stub
-		
+		this.cooldown = coolDown;
 	}
-	@Override
+	
 	public int getCoolDown() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.cooldown;
+	}
+
+	public boolean attack(Interactable target, long currenttime) {
+		int dam = getAttackStrength() - target.getDefense();
+		if(dam <= 0){
+			dam=1;
+		}
+		target.damage(dam);
+		lastfiredtime = currenttime;
+	
+		if(target.isAlive()){
+			return false;
+		}
+		return true;
+	}
+
+	public boolean canAttack(long currenttime) {
+		if((lastfiredtime-currenttime) > cooldown){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public long lastFireTime() {
+		return lastfiredtime;
 	}
 }

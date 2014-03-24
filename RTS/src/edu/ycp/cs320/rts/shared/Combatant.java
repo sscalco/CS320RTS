@@ -17,6 +17,19 @@ public class Combatant extends Unit implements CanAttack {
 	
 	 public Combatant() {
 		super();
+		this.attackStrength = 0;
+		this.attackRange = 0;
+		this.lastfiredtime = 0;
+		this.cooldown = 0;
+		this.lastfiredtime = 0;
+	}
+	 
+	public Combatant(int id, int owner, Point size, Point pos, int health, int speed, int def, int cooldown, int strenght, int range){
+		super(id, owner, size, pos, health, speed, def);
+		this.attackStrength = strenght;
+		this.attackRange = range;
+		this.cooldown = cooldown;
+		this.lastfiredtime = 0;
 	}
 
 
@@ -47,30 +60,39 @@ public class Combatant extends Unit implements CanAttack {
 	}
 
 	@Override
-	public boolean attack(Interactable target) {
-		// TODO Auto-generated method stub
+	public boolean attack(Interactable target, long currenttime) {
+		int dam = getAttackStrength() - target.getDefense();
+		if(dam <= 0){
+			dam=1;
+		}
+		target.damage(dam);
+		lastfiredtime = currenttime;
+	
+		if(target.isAlive()){
+			return false;
+		}
 		return true;
 	}
 
 
-	@Override
+	
 	public void setAttackStrength(int attackStrength) {
-		// TODO Auto-generated method stub
+		this.attackStrength= attackStrength;
 		
 	}
 
-
-	@Override
-	public long getLastFired() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	public boolean canAttack(long currenttime) {
+		if((lastfiredtime-currenttime) > cooldown){
+			return true;
+		}
+		return false;
 	}
 
 
-	@Override
-	public boolean canAttack() {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public long lastFireTime() {
+		return lastfiredtime;
 	}
 		
 	

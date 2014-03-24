@@ -1,5 +1,6 @@
 package edu.ycp.cs320.rts.shared;
 import java.util.ArrayList;
+import java.util.Queue;
 
 
 public interface Movable {
@@ -21,17 +22,12 @@ public interface Movable {
 	 * 
 	 * @return
 	 */
-	abstract ArrayList<Point> getWaypoints();
+	abstract Queue<Point> getWaypoints();
 	
 	/**
 	 * Clears the object's waypoints.
 	 */
 	abstract void clearWaypoints();
-	
-	/**
-	 * Moves the unit to the top most waypoint.
-	 */
-	abstract void move();
 	
 	/**
 	 * 
@@ -45,4 +41,10 @@ public interface Movable {
 	 * @return
 	 */
 	abstract int getSpeed();
+	/**
+	 * Gets the top waypoint without removing it
+	 * 
+	 * @return the next waypoint 
+	 */
+	abstract Point getNextWaypoint();
 }

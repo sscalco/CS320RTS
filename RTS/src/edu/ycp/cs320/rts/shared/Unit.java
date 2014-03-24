@@ -1,19 +1,35 @@
 package edu.ycp.cs320.rts.shared;
 
-import java.util.ArrayList;
+
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Unit extends Interactable implements Movable, Attackable {
 	
-	private int health;
 	private int speed;
-	private int defense;
 	private Queue<Point> waypoints;
 	
 	// Constructor
 	public Unit() {
+		super();
 		waypoints = new PriorityQueue<Point>();
+		speed =1;
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @param owner
+	 * @param size
+	 * @param pos
+	 * @param health
+	 * @param speed
+	 * @param def
+	 */
+	public Unit(int id, int owner, Point size, Point pos, int health, int speed, int def) {
+		super(id, owner, size, pos, def, health);
+		waypoints = new PriorityQueue<Point>();
+		this.speed = speed;
 	}
 	
 	@Override
@@ -27,7 +43,7 @@ public class Unit extends Interactable implements Movable, Attackable {
 	}
 
 	@Override
-	public Point getWaypoint() {
+	public Point getNextWaypoint() {
 		return waypoints.peek();
 	}
 
@@ -48,31 +64,9 @@ public class Unit extends Interactable implements Movable, Attackable {
 	}
 
 	@Override
-	public void damage(int damage) {
-		health -= damage;
-		if (health <= 0) death(); 
-	}
-
-	@Override
-	public void setDefense(int defense) {
-		this.defense = defense;
-	}
-
-	@Override
-	public int getDefense() {
-		return defense;
-	}
-
-	@Override
-	public int getHealth() {
-		return health;
-	}
-
-	@Override
-	public void death() {
-		// TODO Auto-generated method stub
+	public Queue<Point> getWaypoints() {
 		
+		return waypoints;
 	}
-	
 	
 }
