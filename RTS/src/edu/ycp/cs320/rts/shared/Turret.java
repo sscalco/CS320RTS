@@ -15,6 +15,18 @@ public class Turret extends Structure implements CanAttack {
 		this.lastfiredtime = 0;
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @param owner
+	 * @param pos
+	 * @param size
+	 * @param def
+	 * @param health
+	 * @param attackStrength
+	 * @param range
+	 * @param cool
+	 */
 	public Turret(int id, int owner, Point pos, Point size, int def, int health,int attackStrength, int range, int cool){
 		super(id, owner, pos, size, def, health);
 		this.attackStrength = attackStrength;

@@ -9,12 +9,16 @@ public class Structure extends Interactable{
 		super();
 	}
 	
+	
 	/**
 	 * 
+	 * @param id
+	 * @param owner
+	 * @param pos
+	 * @param size
+	 * @param def
 	 * @param health
-	 * @param defense
 	 */
-	
 	public Structure(int id, int owner, Point pos, Point size, int def, int health){
 		super(id, owner, size, pos, def, health);
 	}
