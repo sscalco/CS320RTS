@@ -8,7 +8,8 @@ public class Structure implements Attackable{
 	 * 
 	 */
 	public Structure(){
-		
+		this.health = 0;
+		this.defense = 0;
 	}
 	
 	/**
