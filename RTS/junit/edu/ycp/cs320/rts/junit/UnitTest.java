@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.PriorityQueue;
 
-import org.apache.catalina.util.Queue;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -14,7 +14,10 @@ public class Garrison extends Structure implements CanTransport{
 		this.troops = new ArrayList<Unit>();
 	}
 	
-	public Garrison(int carryingCapacity)
+	public Garrison(int carryingCapacity){
+		this.carryingCapacity = carryingCapacity;
+		this.troops = new ArrayList<Unit>();
+	}
 	/**
 	 * 
 	 */
