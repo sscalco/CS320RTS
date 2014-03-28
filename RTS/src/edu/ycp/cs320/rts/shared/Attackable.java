@@ -35,4 +35,17 @@ public interface Attackable {
 	 * 
 	 */
 	abstract void death();
+	
+	/**
+	 * 
+	 * @return object's max health
+	 */
+	abstract int getMaxHealth();
+	
+	/**This meathod is a quick way to check if a unit is alive
+	 * 
+	 * @return true for alive false for dead
+	 */
+	
+	abstract boolean isAlive();
 }

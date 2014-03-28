@@ -3,87 +3,76 @@
  */
 package edu.ycp.cs320.rts.shared;
 
-import java.util.ArrayList;
-
 /**
  * @author Dan
  *
  * Mar 15, 2014
  */
-public class Interactable extends GameObject implements Attackable, Movable{
-
-	@Override
-	public void addWaypoint(Point waypoint) {
-		// TODO Auto-generated method stub
-		
+public class Interactable extends GameObject implements Attackable{
+	
+	private int defence;
+	private int health;
+	private int maxHealth;
+	
+	/**
+	 * 
+	 */
+	public Interactable(){
+		super();
 	}
-
-	@Override
-	public void removeWaypoint() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ArrayList<Point> getWaypoints() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void clearWaypoints() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setSpeed(int speed) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int getSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	/**
+	 * 
+	 * @param id
+	 * @param owner
+	 * @param size
+	 * @param pos
+	 */
+	public Interactable(int id, int owner, Point size, Point pos, int def, int health){
+		super(id, owner, size, pos);
+		this.defence=def;
+		this.maxHealth=health;
+		this.health=this.maxHealth;
 	}
 
 	@Override
 	public void damage(int damage) {
-		// TODO Auto-generated method stub
-		
+		this.health -= damage;	
 	}
 
 	@Override
 	public void setDefense(int defense) {
-		// TODO Auto-generated method stub
+		this.defence = defense;
 		
 	}
 
 	@Override
 	public int getDefense() {
-		// TODO Auto-generated method stub
-		return 0;
+		return defence;
 	}
 
 	@Override
 	public int getHealth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return health;
 	}
 
 	@Override
 	public void death() {
-		// TODO Auto-generated method stub
+		health = 0;
 		
 	}
-	
-	
+
+	@Override
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+
+	@Override
+	public boolean isAlive() {
+		if(health > 0){
+			return true;
+		}
+		return false;
+	}
 
 }
