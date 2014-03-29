@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
+import edu.ycp.cs320.rts.shared.Combatant;
 import edu.ycp.cs320.rts.shared.GameObject;
 
 @SuppressWarnings("serial")
