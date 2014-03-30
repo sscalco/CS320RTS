@@ -2,8 +2,6 @@ package edu.ycp.cs320.rts.junit;
 
 import static org.junit.Assert.*;
 
-import java.util.PriorityQueue;
-
 import org.junit.Before;
 import org.junit.Test;
 
