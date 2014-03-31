@@ -13,6 +13,7 @@ public class GameObject {
 	private Point size;
 	private int owner;
 	private int id;
+	private String imageName;
 
 	/**
 	 * Creates a game object with initial values
@@ -27,6 +28,7 @@ public class GameObject {
 		this.id = id;
 		this.size = size;
 		this.position = pos;
+		imageName = new String(" ");
 
 	}
 
@@ -38,6 +40,7 @@ public class GameObject {
 		this.id = -1;
 		this.size = new Point();
 		this.position = new Point();
+		imageName = new String(" ");
 	}
 
 	/**
@@ -98,6 +101,14 @@ public class GameObject {
 	 */
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 }
