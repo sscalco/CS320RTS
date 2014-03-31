@@ -80,5 +80,12 @@ public interface GetBoardServiceAsync {
 	 */
 	void sendMassTroopMove(String username, ArrayList<String> troopIDs,
 			Point destination, AsyncCallback<Boolean> callback);
+	
+	/**
+	 * 
+	 * @param username user's ID
+	 * @param callback the  number of resources the the user has
+	 */
+	void getUserResouces(String username, AsyncCallback<Integer> callback);
 
 }

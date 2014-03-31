@@ -25,6 +25,7 @@ public interface GetBoardService extends RemoteService {
 	Boolean sendBuildUnit(String username, String creatorId) throws IllegalArgumentException;
 	Boolean sendQuit(String username) throws IllegalArgumentException;
 	String joinGame() throws IllegalArgumentException;
+	Integer getUserResouces(String username) throws IllegalArgumentException;
 	Boolean sendMassTroopMove(String username, ArrayList<String> troopIDs, Point destination) throws IllegalArgumentException;
 	
 }

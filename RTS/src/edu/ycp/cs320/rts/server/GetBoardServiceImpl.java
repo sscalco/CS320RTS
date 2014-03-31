@@ -36,4 +36,8 @@ public class GetBoardServiceImpl extends RemoteServiceServlet {
 	Boolean sendMassTroopMove(String username, ArrayList<String> troopIDs, Point destination){
 		return false;
 	}
+	
+	Integer getUserResouces(String username){
+		return 999;
+	}
 }
