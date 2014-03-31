@@ -18,14 +18,5 @@ import edu.ycp.cs320.rts.shared.*;
 @RemoteServiceRelativePath("board")
 public interface GetBoardService extends RemoteService {
 	
-	ArrayList<GameObject> getBoard(String username)  throws IllegalArgumentException;
-	Boolean sendTroopMove(String username, String troopId, Point destination) throws IllegalArgumentException;
-	Boolean sendBeginAttack(String username, String attackerId, String victimId) throws IllegalArgumentException;
-	Boolean sendBuildStructure(String username, Point location) throws IllegalArgumentException;
-	Boolean sendBuildUnit(String username, String creatorId) throws IllegalArgumentException;
-	Boolean sendQuit(String username) throws IllegalArgumentException;
-	String joinGame() throws IllegalArgumentException;
-	Integer getUserResouces(String username) throws IllegalArgumentException;
-	Boolean sendMassTroopMove(String username, ArrayList<String> troopIDs, Point destination) throws IllegalArgumentException;
 	
 }
