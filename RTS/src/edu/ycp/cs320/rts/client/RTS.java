@@ -1,6 +1,11 @@
 package edu.ycp.cs320.rts.client;
 
+import java.util.ArrayList;
+
 import edu.ycp.cs320.rts.shared.FieldVerifier;
+import edu.ycp.cs320.rts.shared.GameObject;
+import edu.ycp.cs320.rts.shared.Point;
+import edu.ycp.cs320.rts.shared.Structure;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -66,7 +71,12 @@ public class RTS implements EntryPoint {
 				
 				//Generate a new game view
 				GameView view = new GameView();
-				view.setGameList(null);					//THIS NEEDS THE GAMELIST
+				ArrayList<GameObject> arr = new ArrayList<GameObject>();
+				Structure test = new Structure(1, 1, new Point(320, 240), new Point(128,128), 1, 100);
+				test.setImageName("structureSprite.png");
+				arr.add(test);
+				
+				view.setGameList(arr);					
 				
 				//more stuff
 				FlowPanel imagePanel = new FlowPanel();
