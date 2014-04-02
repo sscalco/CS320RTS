@@ -3,6 +3,10 @@
  */
 package edu.ycp.cs320.rts.shared;
 
+import edu.ycp.cs320.rts.shared.Attackable;
+import edu.ycp.cs320.rts.shared.GameObject;
+import edu.ycp.cs320.rts.shared.Point;
+
 /**
  * @author Dan
  *
