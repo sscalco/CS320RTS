@@ -15,9 +15,90 @@ public class GameState {
 	
 	private ArrayList<GameObject> gameobjects;
 	private TreeMap<String, Integer> resources;
+	private ArrayList<MoveRequest> moveRequests;
+	private ArrayList<BuildRequest> buildRequests;
 	
-	public GameState(){
-		
+	/**
+	 * 
+	 * @param objects
+	 * @param userres
+	 */
+	public GameState(ArrayList<GameObject> objects, TreeMap<String, Integer> userres){
+		setGameobjects(objects);
+		setResources(userres);
+	}
+
+	/**
+	 * @return the gameobjects
+	 */
+	public ArrayList<GameObject> getGameobjects() {
+		return gameobjects;
+	}
+
+	/**
+	 * @param gameobjects the gameobjects to set
+	 */
+	public void setGameobjects(ArrayList<GameObject> gameobjects) {
+		this.gameobjects = gameobjects;
+	}
+
+	/**
+	 * @return the resources
+	 */
+	public TreeMap<String, Integer> getResources() {
+		return resources;
+	}
+
+	/**
+	 * @param resources the resources to set
+	 */
+	public void setResources(TreeMap<String, Integer> resources) {
+		this.resources = resources;
+	}
+
+	/**
+	 * @return the moveRequests
+	 */
+	public ArrayList<MoveRequest> getMoveRequests() {
+		return moveRequests;
+	}
+
+	/**
+	 * @param moveRequests the moveRequests to set
+	 */
+	public void setMoveRequests(ArrayList<MoveRequest> moveRequests) {
+		this.moveRequests = moveRequests;
+	}
+	
+	/**
+	 * Adds a new movement request
+	 * 
+	 * @param re
+	 */
+	public void addMoveRequest(MoveRequest re){
+		moveRequests.add(re);
+	}
+
+	/**
+	 * @return the buildRequests
+	 */
+	public ArrayList<BuildRequest> getBuildRequests() {
+		return buildRequests;
+	}
+
+	/**
+	 * @param buildRequests the buildRequests to set
+	 */
+	public void setBuildRequests(ArrayList<BuildRequest> buildRequests) {
+		this.buildRequests = buildRequests;
+	}
+	
+	/**
+	 * 
+	 * @param req
+	 */
+	public void addBuildRequest(BuildRequest req){
+		this.buildRequests.add(req);
 	}
 	
 

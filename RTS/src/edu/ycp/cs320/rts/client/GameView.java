@@ -65,7 +65,7 @@ public class GameView extends Composite {
 		this.timer = new Timer() {
 			@Override
 			public void run() {
-				if (list.size()>0) {
+				if (list != null) {
 					paint(list);
 				}
 			}
