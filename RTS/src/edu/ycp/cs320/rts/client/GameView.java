@@ -106,7 +106,7 @@ public class GameView extends Composite {
 	// Draw onto buffer
 
 		// Draw background
-		bufCtx.setFillStyle("black");
+		bufCtx.setFillStyle("white");
 		bufCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
 		// Draw game objects

@@ -3,12 +3,15 @@
  */
 package edu.ycp.cs320.rts.shared;
 
+import java.io.Serializable;
+
 /**
  * @author dan
  *
  * Apr 2, 2014
  */
-public class MoveRequest extends Request {
+@SuppressWarnings("serial")
+public class MoveRequest extends Request implements Serializable{
 	private String unitId;
 	private Point newWaypoint;
 	

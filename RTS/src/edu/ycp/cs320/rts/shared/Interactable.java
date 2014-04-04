@@ -3,6 +3,8 @@
  */
 package edu.ycp.cs320.rts.shared;
 
+import java.io.Serializable;
+
 import edu.ycp.cs320.rts.shared.Attackable;
 import edu.ycp.cs320.rts.shared.GameObject;
 import edu.ycp.cs320.rts.shared.Point;
@@ -12,7 +14,8 @@ import edu.ycp.cs320.rts.shared.Point;
  *
  * Mar 15, 2014
  */
-public class Interactable extends GameObject implements Attackable{
+@SuppressWarnings("serial")
+public class Interactable extends GameObject implements Attackable, Serializable{
 	
 	private int defence;
 	private int health;

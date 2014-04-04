@@ -1,30 +1,16 @@
 package edu.ycp.cs320.rts.client;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
-import edu.ycp.cs320.rts.shared.FieldVerifier;
 import edu.ycp.cs320.rts.shared.GameObject;
-import edu.ycp.cs320.rts.shared.Point;
-import edu.ycp.cs320.rts.shared.Structure;
-
+import edu.ycp.cs320.rts.shared.GameState;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -73,16 +59,14 @@ public class RTS implements EntryPoint {
 		unitSprite = new Image(unitSpriteUrl);
 		structureSprite = new Image(structureSpriteUrl);
 		turretSprite = new Image(turretSpriteUrl);
-
+		
 		// Generate a new game view
-		GameView view = new GameView();
-		ArrayList<GameObject> arr = new ArrayList<GameObject>();
-		Structure test = new Structure(1, 1, new Point(320, 240), new Point(
-				128, 128), 1, 100);
-		test.setImageName("structureSprite.png");
-		arr.add(test);
-
-		view.setGameList(arr);
+		
+		final GameView view = new GameView();
+		
+		GameState state = new GameState(new ArrayList<GameObject>(), new TreeMap<String, Integer>());
+		
+		view.setGameList(state.getGameobjects());
 
 		// more stuff
 		FlowPanel imagePanel = new FlowPanel();
@@ -100,7 +84,31 @@ public class RTS implements EntryPoint {
 		view.setCombatantSprite(combatantSprite);
 		view.setStructureSprite(structureSprite);
 		view.setTurretSprite(turretSprite);
+		
+		GetBoardServiceAsync boardservice = (GetBoardServiceAsync) GWT.create(GetBoardService.class);
+		
+		AsyncCallback<GameState> callback = new AsyncCallback<GameState>() {
 
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				GWT.log("failed "+ caught.getMessage());
+				
+			}
+
+			@Override
+			public void onSuccess(GameState result) {
+				GWT.log("Success");
+				GameState newstate =(GameState) result;
+				view.setGameList(newstate.getGameobjects());
+				
+			}
+		};
+		
+
+		boardservice.exchangeGameState(state, callback);
 		view.activate();
+		
+		
 	}
 }

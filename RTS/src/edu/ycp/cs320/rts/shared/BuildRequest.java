@@ -3,12 +3,15 @@
  */
 package edu.ycp.cs320.rts.shared;
 
+import java.io.Serializable;
+
 /**
  * @author dan
  *
  * Apr 2, 2014
  */
-public class BuildRequest extends Request{
+@SuppressWarnings("serial")
+public class BuildRequest extends Request implements Serializable{
 	
 	private Point buildpoint;
 	

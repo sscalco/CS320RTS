@@ -6,12 +6,14 @@ package edu.ycp.cs320.rts.shared;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 /**
  * @author dan
  *
  * Mar 31, 2014
  */
-public class GameState {
+public class GameState implements IsSerializable{
 	
 	private ArrayList<GameObject> gameobjects;
 	private TreeMap<String, Integer> resources;
@@ -26,6 +28,11 @@ public class GameState {
 	public GameState(ArrayList<GameObject> objects, TreeMap<String, Integer> userres){
 		setGameobjects(objects);
 		setResources(userres);
+	}
+	
+	public GameState(){
+		setGameobjects(new ArrayList<GameObject>());
+		setResources(new TreeMap<String, Integer>());
 	}
 
 	/**
